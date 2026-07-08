@@ -24,7 +24,7 @@ AI studio for chaining generative media models and showrunner turning drama scen
 
 <strong>Checks</strong>
 
-[![Vercel Status](https://img.shields.io/github/deployments/babysea-community/marsha/production?style=for-the-badge&label=vercel&logo=vercel&logoColor=white&color=000000)](https://marsha.vercel.app)
+[![Vercel Status](https://img.shields.io/github/deployments/babysea-community/marsha/production?style=for-the-badge&label=vercel&logo=vercel&logoColor=white&color=000000)](https://marsha-canvas.vercel.app)
 [![Docker Status](https://img.shields.io/docker/v/babyseaoss/marsha?style=for-the-badge&label=docker&logo=docker&logoColor=white&color=2560FF)](https://hub.docker.com/r/babyseaoss/marsha)
 [![GitLabCI](https://img.shields.io/gitlab/pipeline-status/babysea/marsha?branch=main&style=for-the-badge&label=gitlabci&logo=gitlab&logoColor=white&color=FC6D26)](https://gitlab.com/babysea/marsha/-/commits/main)
 [![Sentry](https://img.shields.io/github/actions/workflow/status/babysea-community/marsha/sentry-check.yml?style=for-the-badge&label=sentry&logo=sentry&logoColor=white&color=181225)](https://github.com/babysea-community/marsha/actions/workflows/sentry-check.yml)

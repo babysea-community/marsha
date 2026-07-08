@@ -27,7 +27,7 @@ catalog:
   eslint-config-next: 16.2.9
   globals: 17.6.0
   jose: 6.2.3
-  next: 16.2.6
+  next: 16.2.10
   pg: 8.21.0
   prettier: 3.9.4
   proxy-agent: 5.0.0

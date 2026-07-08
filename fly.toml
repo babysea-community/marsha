@@ -1,0 +1,42 @@
+app = "marsha"
+primary_region = "iad"
+kill_signal = "SIGINT"
+kill_timeout = "30s"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "3000"
+  HOSTNAME = "0.0.0.0"
+  NEXT_TELEMETRY_DISABLED = "1"
+  APP_DATABASE = "aurora"
+  APP_PROVIDER_MODE = "byok"
+  BFL_REGION = "global"
+  BFL_API_BASE_URL = "https://api.bfl.ai/v1"
+  BABYSEA_REGION = "us"
+  BABYSEA_API_BASE_URL = "https://api.us.babysea.ai"
+  AGENT_CHAIN_AWS_BEDROCK_REGION = "us-east-1"
+  AGENT_CHAIN_AWS_BEDROCK_AGENT = "us.amazon.nova-2-lite-v1:0"
+  APP_STORAGE_PROVIDER = "none"
+  NEXT_PUBLIC_SENTRY_ENVIRONMENT = "production"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+[[http_service.checks]]
+  interval = "30s"
+  timeout = "5s"
+  grace_period = "30s"
+  method = "GET"
+  path = "/api/health"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 1024

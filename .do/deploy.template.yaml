@@ -1,0 +1,209 @@
+spec:
+  name: marsha
+  services:
+    - name: web
+      environment_slug: node-js
+      git:
+        branch: main
+        repo_clone_url: https://github.com/babysea-community/marsha.git
+      build_command: corepack enable && pnpm install --frozen-lockfile && pnpm build
+      run_command: pnpm start -- -p $PORT
+      envs:
+        - key: NEXT_PUBLIC_SITE_URL
+          scope: RUN_AND_BUILD_TIME
+        - key: OWNER_EMAIL
+          scope: RUN_TIME
+        - key: OWNER_PASSWORD
+          scope: RUN_TIME
+          type: SECRET
+        - key: OWNER_SESSION_SECRET
+          scope: RUN_TIME
+          type: SECRET
+        - key: APP_DATABASE
+          scope: RUN_TIME
+          value: aurora
+        - key: DATABASE_URL
+          scope: RUN_TIME
+          type: SECRET
+        - key: APP_API_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: APP_CRON_SECRET
+          scope: RUN_TIME
+          type: SECRET
+        - key: APP_CALLBACK_SECRET
+          scope: RUN_TIME
+          type: SECRET
+        - key: APP_PROVIDER_MODE
+          scope: RUN_TIME
+          value: byok
+        - key: DASHSCOPE_API_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: BFL_API_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: BFL_REGION
+          scope: RUN_TIME
+          value: global
+        - key: BFL_API_BASE_URL
+          scope: RUN_TIME
+          value: https://api.bfl.ai/v1
+        - key: ARK_API_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: GEMINI_API_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: OPENAI_API_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: RUNWAYML_API_SECRET
+          scope: RUN_TIME
+          type: SECRET
+        - key: BABYSEA_API_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: BABYSEA_REGION
+          scope: RUN_TIME
+          value: us
+        - key: BABYSEA_API_BASE_URL
+          scope: RUN_TIME
+          value: https://api.us.babysea.ai
+        - key: BABYSEA_WEBHOOK_SECRET
+          scope: RUN_TIME
+          type: SECRET
+        - key: AGENT_CHAIN_AWS_BEDROCK_TOKEN
+          scope: RUN_TIME
+          type: SECRET
+        - key: AGENT_CHAIN_AWS_BEDROCK_REGION
+          scope: RUN_TIME
+          value: us-east-1
+        - key: AGENT_CHAIN_AWS_BEDROCK_AGENT
+          scope: RUN_TIME
+          value: us.amazon.nova-2-lite-v1:0
+        - key: APP_STORAGE_PROVIDER
+          scope: RUN_TIME
+          value: none
+        - key: ALIBABA_CLOUD_OSS_REGION
+          scope: RUN_TIME
+        - key: ALIBABA_CLOUD_OSS_ACCESS_KEY_ID
+          scope: RUN_TIME
+          type: SECRET
+        - key: ALIBABA_CLOUD_OSS_ACCESS_KEY_SECRET
+          scope: RUN_TIME
+          type: SECRET
+        - key: ALIBABA_CLOUD_OSS_BUCKET_NAME
+          scope: RUN_TIME
+        - key: ALIBABA_CLOUD_OSS_ENDPOINT
+          scope: RUN_TIME
+        - key: ALIBABA_CLOUD_OSS_PUBLIC_BASE_URL
+          scope: RUN_TIME
+        - key: AWS_S3_REGION
+          scope: RUN_TIME
+        - key: AWS_S3_ACCESS_KEY_ID
+          scope: RUN_TIME
+          type: SECRET
+        - key: AWS_S3_SECRET_ACCESS_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: AWS_S3_BUCKET_NAME
+          scope: RUN_TIME
+        - key: AWS_S3_ENDPOINT_URL
+          scope: RUN_TIME
+        - key: BACKBLAZE_B2_KEY_ID
+          scope: RUN_TIME
+          type: SECRET
+        - key: BACKBLAZE_B2_APPLICATION_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: BACKBLAZE_B2_BUCKET_NAME
+          scope: RUN_TIME
+        - key: BACKBLAZE_B2_BUCKET_ID
+          scope: RUN_TIME
+        - key: BACKBLAZE_B2_PUBLIC_BASE_URL
+          scope: RUN_TIME
+        - key: CLOUDFLARE_R2_ACCOUNT_ID
+          scope: RUN_TIME
+        - key: CLOUDFLARE_R2_ACCESS_KEY_ID
+          scope: RUN_TIME
+          type: SECRET
+        - key: CLOUDFLARE_R2_SECRET_ACCESS_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: CLOUDFLARE_R2_BUCKET_NAME
+          scope: RUN_TIME
+        - key: CLOUDFLARE_R2_ENDPOINT_URL
+          scope: RUN_TIME
+        - key: CLOUDFLARE_R2_CUSTOM_DOMAIN_URL
+          scope: RUN_TIME
+        - key: HUGGINGFACE_STORAGE_NAMESPACE
+          scope: RUN_TIME
+        - key: HUGGINGFACE_STORAGE_ACCESS_KEY_ID
+          scope: RUN_TIME
+          type: SECRET
+        - key: HUGGINGFACE_STORAGE_SECRET_ACCESS_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: HUGGINGFACE_STORAGE_BUCKET_NAME
+          scope: RUN_TIME
+        - key: HUGGINGFACE_STORAGE_PUBLIC_BASE_URL
+          scope: RUN_TIME
+        - key: MINIO_ENDPOINT_URL
+          scope: RUN_TIME
+        - key: MINIO_ACCESS_KEY_ID
+          scope: RUN_TIME
+          type: SECRET
+        - key: MINIO_SECRET_ACCESS_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: MINIO_BUCKET_NAME
+          scope: RUN_TIME
+        - key: MINIO_REGION
+          scope: RUN_TIME
+          value: us-east-1
+        - key: MINIO_PUBLIC_BASE_URL
+          scope: RUN_TIME
+        - key: SCALEWAY_OBJECT_STORAGE_REGION
+          scope: RUN_TIME
+        - key: SCALEWAY_OBJECT_STORAGE_ACCESS_KEY_ID
+          scope: RUN_TIME
+          type: SECRET
+        - key: SCALEWAY_OBJECT_STORAGE_SECRET_ACCESS_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: SCALEWAY_OBJECT_STORAGE_BUCKET_NAME
+          scope: RUN_TIME
+        - key: SCALEWAY_OBJECT_STORAGE_ENDPOINT_URL
+          scope: RUN_TIME
+        - key: SCALEWAY_OBJECT_STORAGE_PUBLIC_BASE_URL
+          scope: RUN_TIME
+        - key: SPACES_REGION
+          scope: RUN_TIME
+        - key: SPACES_ACCESS_KEY_ID
+          scope: RUN_TIME
+          type: SECRET
+        - key: SPACES_SECRET_ACCESS_KEY
+          scope: RUN_TIME
+          type: SECRET
+        - key: SPACES_BUCKET_NAME
+          scope: RUN_TIME
+        - key: SPACES_ENDPOINT_URL
+          scope: RUN_TIME
+        - key: SPACES_PUBLIC_BASE_URL
+          scope: RUN_TIME
+        - key: BLOB_READ_WRITE_TOKEN
+          scope: RUN_TIME
+          type: SECRET
+        - key: NEXT_PUBLIC_SENTRY_DSN
+          scope: RUN_AND_BUILD_TIME
+        - key: NEXT_PUBLIC_SENTRY_ENVIRONMENT
+          scope: RUN_AND_BUILD_TIME
+          value: production
+        - key: SENTRY_ORG
+          scope: RUN_AND_BUILD_TIME
+        - key: SENTRY_PROJECT
+          scope: RUN_AND_BUILD_TIME
+        - key: SENTRY_AUTH_TOKEN
+          scope: BUILD_TIME
+          type: SECRET

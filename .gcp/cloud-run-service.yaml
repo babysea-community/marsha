@@ -1,0 +1,188 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: marsha
+  annotations:
+    run.googleapis.com/ingress: all
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: '1'
+        autoscaling.knative.dev/maxScale: '10'
+    spec:
+      containerConcurrency: 80
+      timeoutSeconds: 300
+      containers:
+        - image: REGION-docker.pkg.dev/PROJECT_ID/marsha/marsha:latest
+          ports:
+            - name: http1
+              containerPort: 3000
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1Gi
+          env:
+            - name: PORT
+              value: '3000'
+            - name: HOSTNAME
+              value: 0.0.0.0
+            - name: NEXT_TELEMETRY_DISABLED
+              value: '1'
+            - name: NEXT_PUBLIC_SITE_URL
+              value: https://marsha-REGION-PROJECT_HASH.a.run.app
+            - name: OWNER_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-owner-email
+                  key: latest
+            - name: OWNER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-owner-password
+                  key: latest
+            - name: OWNER_SESSION_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-owner-session-secret
+                  key: latest
+            - name: APP_DATABASE
+              value: aurora
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-database-url
+                  key: latest
+            - name: APP_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-api-key
+                  key: latest
+            - name: APP_CRON_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-cron-secret
+                  key: latest
+            - name: APP_CALLBACK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-callback-secret
+                  key: latest
+            - name: APP_PROVIDER_MODE
+              value: byok
+            - name: DASHSCOPE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-dashscope-api-key
+                  key: latest
+            - name: BFL_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-bfl-api-key
+                  key: latest
+            - name: BFL_REGION
+              value: global
+            - name: BFL_API_BASE_URL
+              value: https://api.bfl.ai/v1
+            - name: ARK_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-ark-api-key
+                  key: latest
+            - name: GEMINI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-gemini-api-key
+                  key: latest
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-openai-api-key
+                  key: latest
+            - name: RUNWAYML_API_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-runway-api-secret
+                  key: latest
+            - name: BABYSEA_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-babysea-api-key
+                  key: latest
+            - name: BABYSEA_REGION
+              value: us
+            - name: BABYSEA_API_BASE_URL
+              value: https://api.us.babysea.ai
+            - name: BABYSEA_WEBHOOK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: marsha-babysea-webhook-secret
+                  key: latest
+            - name: AGENT_CHAIN_AWS_BEDROCK_REGION
+              value: us-east-1
+            - name: AGENT_CHAIN_AWS_BEDROCK_AGENT
+              value: us.amazon.nova-2-lite-v1:0
+            - name: APP_STORAGE_PROVIDER
+              value: 'none'
+            - name: ALIBABA_CLOUD_OSS_REGION
+              value: ''
+            - name: ALIBABA_CLOUD_OSS_BUCKET_NAME
+              value: ''
+            - name: ALIBABA_CLOUD_OSS_ENDPOINT
+              value: ''
+            - name: ALIBABA_CLOUD_OSS_PUBLIC_BASE_URL
+              value: ''
+            - name: AWS_S3_REGION
+              value: ''
+            - name: AWS_S3_BUCKET_NAME
+              value: ''
+            - name: AWS_S3_ENDPOINT_URL
+              value: ''
+            - name: BACKBLAZE_B2_BUCKET_NAME
+              value: ''
+            - name: BACKBLAZE_B2_BUCKET_ID
+              value: ''
+            - name: BACKBLAZE_B2_PUBLIC_BASE_URL
+              value: ''
+            - name: CLOUDFLARE_R2_ACCOUNT_ID
+              value: ''
+            - name: CLOUDFLARE_R2_BUCKET_NAME
+              value: ''
+            - name: CLOUDFLARE_R2_ENDPOINT_URL
+              value: ''
+            - name: CLOUDFLARE_R2_CUSTOM_DOMAIN_URL
+              value: ''
+            - name: HUGGINGFACE_STORAGE_NAMESPACE
+              value: ''
+            - name: HUGGINGFACE_STORAGE_BUCKET_NAME
+              value: ''
+            - name: HUGGINGFACE_STORAGE_PUBLIC_BASE_URL
+              value: ''
+            - name: MINIO_ENDPOINT_URL
+              value: ''
+            - name: MINIO_BUCKET_NAME
+              value: ''
+            - name: MINIO_REGION
+              value: us-east-1
+            - name: MINIO_PUBLIC_BASE_URL
+              value: ''
+            - name: SCALEWAY_OBJECT_STORAGE_REGION
+              value: ''
+            - name: SCALEWAY_OBJECT_STORAGE_BUCKET_NAME
+              value: ''
+            - name: SCALEWAY_OBJECT_STORAGE_ENDPOINT_URL
+              value: ''
+            - name: SCALEWAY_OBJECT_STORAGE_PUBLIC_BASE_URL
+              value: ''
+            - name: SPACES_REGION
+              value: ''
+            - name: SPACES_BUCKET_NAME
+              value: ''
+            - name: SPACES_ENDPOINT_URL
+              value: ''
+            - name: SPACES_PUBLIC_BASE_URL
+              value: ''
+            - name: NEXT_PUBLIC_SENTRY_DSN
+              value: ''
+            - name: NEXT_PUBLIC_SENTRY_ENVIRONMENT
+              value: production

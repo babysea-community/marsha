@@ -1,0 +1,11 @@
+title = "Marsha gitleaks config"
+
+[allowlist]
+description = "Allow Marsha documentation and CI placeholder examples."
+regexTarget = "match"
+regexes = [
+  '''BABYSEA_API_KEY=\nBABYSEA_REGION=us''',
+  '''BABYSEA_API_KEY=<babysea_api_key>\nBABYSEA_REGION=us''',
+  '''APP_API_KEY:\s*bchn_ci_1234567890''',
+  '''Authorization: Bearer (APP_API_KEY|bchn_live_\.\.\.)''',
+]

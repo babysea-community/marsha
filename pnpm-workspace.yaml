@@ -1,0 +1,65 @@
+packages:
+  - .
+
+minimumReleaseAge: 0
+
+catalog:
+  '@aws-sdk/client-cloudfront': 3.1074.0
+  '@aws-sdk/client-s3': 3.1074.0
+  '@eslint/js': 10.0.1
+  '@next/eslint-plugin-next': 16.2.9
+  '@radix-ui/react-slot': 1.2.4
+  '@sentry/nextjs': 10.40.0
+  '@tailwindcss/postcss': 4.3.1
+  '@types/ali-oss': 6.16.11
+  '@types/node': 25.3.1
+  '@types/pg': 8.15.6
+  '@types/react': 19.2.14
+  '@types/react-dom': 19.2.3
+  '@vercel/blob': 2.4.1
+  '@xyflow/react': 12.11.1
+  ali-oss: 6.23.0
+  babysea: 2.0.0
+  babel-plugin-react-compiler: 1.0.0
+  class-variance-authority: 0.7.1
+  clsx: 2.1.1
+  eslint: 10.0.1
+  eslint-config-next: 16.2.9
+  globals: 17.6.0
+  jose: 6.2.3
+  next: 16.2.6
+  pg: 8.21.0
+  prettier: 3.9.4
+  proxy-agent: 5.0.0
+  react: 19.2.7
+  react-dom: 19.2.7
+  semantic-lady: 0.6.1
+  server-only: 0.0.1
+  sonner: 2.0.7
+  tailwind-merge: 3.6.0
+  tailwindcss: 4.3.0
+  typescript: 6.0.3
+  typescript-eslint: 8.62.0
+  vitest: 4.0.7
+  zod: 4.4.3
+
+overrides:
+  '@opentelemetry/core': 2.8.0
+  brace-expansion: 5.0.6
+  ip-address: 10.1.1
+  postcss: 8.5.10
+  tar: 7.5.16
+
+onlyBuiltDependencies:
+  - '@sentry/cli'
+  - '@tailwindcss/oxide'
+  - esbuild
+  - sharp
+  - unrs-resolver
+  - workerd
+
+allowBuilds:
+  '@sentry/cli': true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true

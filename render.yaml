@@ -1,0 +1,160 @@
+services:
+  - type: web
+    name: marsha
+    runtime: node
+    autoDeploy: false
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
+    startCommand: pnpm start -- -p $PORT
+    envVars:
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      - key: OWNER_EMAIL
+        sync: false
+      - key: OWNER_PASSWORD
+        sync: false
+      - key: OWNER_SESSION_SECRET
+        sync: false
+      - key: APP_DATABASE
+        value: aurora
+      - key: DATABASE_URL
+        sync: false
+      - key: APP_API_KEY
+        sync: false
+      - key: APP_CRON_SECRET
+        sync: false
+      - key: APP_CALLBACK_SECRET
+        sync: false
+      - key: APP_PROVIDER_MODE
+        value: byok
+      - key: DASHSCOPE_API_KEY
+        sync: false
+      - key: BFL_API_KEY
+        sync: false
+      - key: BFL_REGION
+        value: global
+      - key: BFL_API_BASE_URL
+        value: https://api.bfl.ai/v1
+      - key: ARK_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: RUNWAYML_API_SECRET
+        sync: false
+      - key: BABYSEA_API_KEY
+        sync: false
+      - key: BABYSEA_REGION
+        value: us
+      - key: BABYSEA_API_BASE_URL
+        value: https://api.us.babysea.ai
+      - key: BABYSEA_WEBHOOK_SECRET
+        sync: false
+      - key: AGENT_CHAIN_AWS_BEDROCK_TOKEN
+        sync: false
+      - key: AGENT_CHAIN_AWS_BEDROCK_REGION
+        value: us-east-1
+      - key: AGENT_CHAIN_AWS_BEDROCK_AGENT
+        value: us.amazon.nova-2-lite-v1:0
+      - key: APP_STORAGE_PROVIDER
+        value: none
+      - key: ALIBABA_CLOUD_OSS_REGION
+        sync: false
+      - key: ALIBABA_CLOUD_OSS_ACCESS_KEY_ID
+        sync: false
+      - key: ALIBABA_CLOUD_OSS_ACCESS_KEY_SECRET
+        sync: false
+      - key: ALIBABA_CLOUD_OSS_BUCKET_NAME
+        sync: false
+      - key: ALIBABA_CLOUD_OSS_ENDPOINT
+        sync: false
+      - key: ALIBABA_CLOUD_OSS_PUBLIC_BASE_URL
+        sync: false
+      - key: AWS_S3_REGION
+        sync: false
+      - key: AWS_S3_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_S3_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_S3_BUCKET_NAME
+        sync: false
+      - key: AWS_S3_ENDPOINT_URL
+        sync: false
+      - key: BACKBLAZE_B2_KEY_ID
+        sync: false
+      - key: BACKBLAZE_B2_APPLICATION_KEY
+        sync: false
+      - key: BACKBLAZE_B2_BUCKET_NAME
+        sync: false
+      - key: BACKBLAZE_B2_BUCKET_ID
+        sync: false
+      - key: BACKBLAZE_B2_PUBLIC_BASE_URL
+        sync: false
+      - key: CLOUDFLARE_R2_ACCOUNT_ID
+        sync: false
+      - key: CLOUDFLARE_R2_ACCESS_KEY_ID
+        sync: false
+      - key: CLOUDFLARE_R2_SECRET_ACCESS_KEY
+        sync: false
+      - key: CLOUDFLARE_R2_BUCKET_NAME
+        sync: false
+      - key: CLOUDFLARE_R2_ENDPOINT_URL
+        sync: false
+      - key: CLOUDFLARE_R2_CUSTOM_DOMAIN_URL
+        sync: false
+      - key: HUGGINGFACE_STORAGE_NAMESPACE
+        sync: false
+      - key: HUGGINGFACE_STORAGE_ACCESS_KEY_ID
+        sync: false
+      - key: HUGGINGFACE_STORAGE_SECRET_ACCESS_KEY
+        sync: false
+      - key: HUGGINGFACE_STORAGE_BUCKET_NAME
+        sync: false
+      - key: HUGGINGFACE_STORAGE_PUBLIC_BASE_URL
+        sync: false
+      - key: MINIO_ENDPOINT_URL
+        sync: false
+      - key: MINIO_ACCESS_KEY_ID
+        sync: false
+      - key: MINIO_SECRET_ACCESS_KEY
+        sync: false
+      - key: MINIO_BUCKET_NAME
+        sync: false
+      - key: MINIO_REGION
+        value: us-east-1
+      - key: MINIO_PUBLIC_BASE_URL
+        sync: false
+      - key: SCALEWAY_OBJECT_STORAGE_REGION
+        sync: false
+      - key: SCALEWAY_OBJECT_STORAGE_ACCESS_KEY_ID
+        sync: false
+      - key: SCALEWAY_OBJECT_STORAGE_SECRET_ACCESS_KEY
+        sync: false
+      - key: SCALEWAY_OBJECT_STORAGE_BUCKET_NAME
+        sync: false
+      - key: SCALEWAY_OBJECT_STORAGE_ENDPOINT_URL
+        sync: false
+      - key: SCALEWAY_OBJECT_STORAGE_PUBLIC_BASE_URL
+        sync: false
+      - key: SPACES_REGION
+        sync: false
+      - key: SPACES_ACCESS_KEY_ID
+        sync: false
+      - key: SPACES_SECRET_ACCESS_KEY
+        sync: false
+      - key: SPACES_BUCKET_NAME
+        sync: false
+      - key: SPACES_ENDPOINT_URL
+        sync: false
+      - key: SPACES_PUBLIC_BASE_URL
+        sync: false
+      - key: BLOB_READ_WRITE_TOKEN
+        sync: false
+      - key: NEXT_PUBLIC_SENTRY_DSN
+        sync: false
+      - key: NEXT_PUBLIC_SENTRY_ENVIRONMENT
+        value: production
+      - key: SENTRY_ORG
+        sync: false
+      - key: SENTRY_PROJECT
+        sync: false

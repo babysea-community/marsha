@@ -28,7 +28,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install --prod --frozen-lockfile
 
 FROM node:24-alpine AS runner
-ARG APP_VERSION=0.4.1
+ARG APP_VERSION=0.1.0
 ARG BUILD_DATE=unknown
 ARG VCS_REF=unknown
 WORKDIR /app

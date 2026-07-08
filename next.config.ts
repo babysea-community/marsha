@@ -40,6 +40,10 @@ const allowedServerActionOrigins = (() => {
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   reactCompiler: true,
+  // `ali-oss` contains optional urllib proxy helpers. Keep it external to the
+  // server bundle so Turbopack does not resolve optional runtime-only paths at
+  // build time.
+  serverExternalPackages: ['ali-oss'],
   turbopack: {
     root: turbopackRoot,
   },

@@ -40,7 +40,7 @@ jobs:
           fi
           echo "deploy=true" >> "$GITHUB_OUTPUT"
         id: check
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         if: steps.check.outputs.deploy == 'true'
       - uses: pnpm/action-setup@v6
         if: steps.check.outputs.deploy == 'true'

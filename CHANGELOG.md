@@ -12,6 +12,7 @@ All notable changes will be documented here. The format follows [Keep a Changelo
 ### Changed
 
 - Expanded deployment env examples and provider documentation for the new storage options.
+- Removed the package-level Node.js version cap so Vercel can use the runtime configured in project settings.
 
 ## [0.1.0] - 2026-07-07 - INITIAL RELEASED
 

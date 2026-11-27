@@ -21,9 +21,6 @@
     "generative-ai",
     "generative-media"
   ],
-  "engines": {
-    "node": ">=24.14.0 <25"
-  },
   "scripts": {
     "build": "next build",
     "clean": "git clean -xdf .next .turbo node_modules",
